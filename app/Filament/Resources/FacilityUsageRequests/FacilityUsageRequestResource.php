@@ -22,7 +22,20 @@ class FacilityUsageRequestResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Layanan';
+    public static function getNavigationGroup(): ?string
+    {
+        return __('Services');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Facility Usage Request');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Facility Usage Requests');
+    }
 
     public static function form(Schema $schema): Schema
     {

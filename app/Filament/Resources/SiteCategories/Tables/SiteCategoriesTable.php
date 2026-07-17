@@ -18,15 +18,20 @@ class SiteCategoriesTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label(__('Name'))
                     ->searchable(),
                 TextColumn::make('slug')
+                    ->label(__('Slug'))
                     ->searchable(),
-                ImageColumn::make('icon'),
+                ImageColumn::make('icon')
+                    ->label(__('Icon')),
                 TextColumn::make('created_at')
+                    ->label(__('Created At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label(__('Updated At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

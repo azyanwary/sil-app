@@ -14,12 +14,16 @@ class SiteCategoryForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label(__('Name'))
                     ->required(),
                 TextInput::make('slug')
+                    ->label(__('Slug'))
                     ->required(),
                 Textarea::make('description')
+                    ->label(__('Description'))
                     ->columnSpanFull(),
                 FileUpload::make('icon')
+                    ->label(__('Icon'))
                     ->image()
                     ->directory('site-categories'),
             ]);

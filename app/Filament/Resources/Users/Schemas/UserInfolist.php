@@ -11,19 +11,24 @@ class UserInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
+                TextEntry::make('name')
+                    ->label(__('Name')),
                 TextEntry::make('email')
-                    ->label('Email address'),
+                    ->label(__('Email address')),
                 TextEntry::make('email_verified_at')
+                    ->label(__('Email Verified At'))
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('created_at')
+                    ->label(__('Created At'))
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
+                    ->label(__('Updated At'))
                     ->dateTime()
                     ->placeholder('-'),
-                TextEntry::make('role'),
+                TextEntry::make('role')
+                    ->label(__('Role')),
             ]);
     }
 }

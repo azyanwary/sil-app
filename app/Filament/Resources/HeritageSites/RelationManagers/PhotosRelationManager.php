@@ -27,11 +27,13 @@ class PhotosRelationManager extends RelationManager
         return $schema
             ->components([
                 FileUpload::make('file_path')
+                    ->label(__('Photo'))
                     ->image()
                     ->directory('site-photos')
                     ->imageEditor()
                     ->required(),
-                TextInput::make('caption'),
+                TextInput::make('caption')
+                    ->label(__('Caption')),
             ]);
     }
 
@@ -40,14 +42,17 @@ class PhotosRelationManager extends RelationManager
         return $table
             ->columns([
                 ImageColumn::make('file_path')
-                    ->label('Foto'),
+                    ->label(__('Photo')),
                 TextColumn::make('caption')
+                    ->label(__('Caption'))
                     ->searchable(),
                 TextColumn::make('created_at')
+                    ->label(__('Created At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label(__('Updated At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

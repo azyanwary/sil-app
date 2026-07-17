@@ -22,7 +22,20 @@ class HeritageSiteResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingLibrary;
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Situs Cagar Budaya';
+    public static function getNavigationGroup(): ?string
+    {
+        return __('Cultural Heritage Sites');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Heritage Site');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Heritage Sites');
+    }
 
     public static function form(Schema $schema): Schema
     {

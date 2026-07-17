@@ -18,27 +18,32 @@ class SiteConditionReportsTable
         return $table
             ->columns([
                 TextColumn::make('site.name')
-                    ->label('Situs')
+                    ->label(__('Site'))
                     ->searchable(),
                 TextColumn::make('surveyor.name')
-                    ->label('Surveyor')
+                    ->label(__('Surveyor'))
                     ->searchable(),
                 TextColumn::make('survey_date')
+                    ->label(__('Survey Date'))
                     ->date()
                     ->sortable(),
                 TextColumn::make('condition')
+                    ->label(__('Condition'))
                     ->badge()
                     ->searchable(),
                 IconColumn::make('is_urgent')
+                    ->label(__('Urgent'))
                     ->boolean(),
                 TextColumn::make('responder.name')
-                    ->label('Direspon oleh')
+                    ->label(__('Responded by'))
                     ->placeholder('-'),
                 TextColumn::make('created_at')
+                    ->label(__('Created At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label(__('Updated At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

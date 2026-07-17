@@ -12,16 +12,22 @@ class SiteCategoryInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
-                TextEntry::make('slug'),
+                TextEntry::make('name')
+                    ->label(__('Name')),
+                TextEntry::make('slug')
+                    ->label(__('Slug')),
                 TextEntry::make('description')
+                    ->label(__('Description'))
                     ->placeholder('-')
                     ->columnSpanFull(),
-                ImageEntry::make('icon'),
+                ImageEntry::make('icon')
+                    ->label(__('Icon')),
                 TextEntry::make('created_at')
+                    ->label(__('Created At'))
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
+                    ->label(__('Updated At'))
                     ->dateTime()
                     ->placeholder('-'),
             ]);

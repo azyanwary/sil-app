@@ -24,7 +24,20 @@ class SiteConditionReportResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Situs Cagar Budaya';
+    public static function getNavigationGroup(): ?string
+    {
+        return __('Cultural Heritage Sites');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Site Condition Report');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Site Condition Reports');
+    }
 
     public static function form(Schema $schema): Schema
     {

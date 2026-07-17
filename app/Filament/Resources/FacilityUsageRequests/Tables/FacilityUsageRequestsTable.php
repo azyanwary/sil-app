@@ -17,32 +17,40 @@ class FacilityUsageRequestsTable
         return $table
             ->columns([
                 TextColumn::make('request_number')
+                    ->label(__('Request Number'))
                     ->searchable(),
                 TextColumn::make('user.name')
-                    ->label('Pemohon')
+                    ->label(__('Applicant'))
                     ->searchable(),
                 TextColumn::make('site.name')
-                    ->label('Situs')
+                    ->label(__('Site'))
                     ->searchable(),
                 TextColumn::make('activity_type')
+                    ->label(__('Activity Type'))
                     ->searchable(),
                 TextColumn::make('start_date')
+                    ->label(__('Start Date'))
                     ->date()
                     ->sortable(),
                 TextColumn::make('end_date')
+                    ->label(__('End Date'))
                     ->date()
                     ->sortable(),
                 TextColumn::make('status')
+                    ->label(__('Status'))
                     ->badge()
                     ->searchable(),
                 TextColumn::make('fee_amount')
+                    ->label(__('Fee Amount'))
                     ->money('IDR')
                     ->sortable(),
                 TextColumn::make('created_at')
+                    ->label(__('Created At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label(__('Updated At'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

@@ -15,30 +15,39 @@ class SiteConditionReportForm
         return $schema
             ->components([
                 Select::make('heritage_site_id')
+                    ->label(__('Site'))
                     ->relationship('site', 'name')
                     ->required(),
                 Select::make('surveyor_id')
+                    ->label(__('Surveyor'))
                     ->relationship('surveyor', 'name')
                     ->required(),
                 DatePicker::make('survey_date')
+                    ->label(__('Survey Date'))
                     ->required(),
                 Select::make('condition')
+                    ->label(__('Condition'))
                     ->options([
-                        'good' => 'Good',
-                        'minor_damage' => 'Minor Damage',
-                        'moderate_damage' => 'Moderate Damage',
-                        'severe_damage' => 'Severe Damage',
+                        'good' => __('Good'),
+                        'minor_damage' => __('Minor Damage'),
+                        'moderate_damage' => __('Moderate Damage'),
+                        'severe_damage' => __('Severe Damage'),
                     ])
                     ->required(),
                 Textarea::make('findings')
+                    ->label(__('Findings'))
                     ->columnSpanFull(),
                 Textarea::make('recommendation')
+                    ->label(__('Recommendation'))
                     ->columnSpanFull(),
                 Toggle::make('is_urgent')
+                    ->label(__('Urgent'))
                     ->default(false),
                 Select::make('responded_by')
+                    ->label(__('Responded by'))
                     ->relationship('responder', 'name'),
                 Textarea::make('response_notes')
+                    ->label(__('Response Notes'))
                     ->columnSpanFull(),
             ]);
     }
