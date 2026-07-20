@@ -35,8 +35,9 @@ class UsersTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('role')
-                    ->translateLabel()
+                TextColumn::make('roles.name')
+                    ->label(__('Role (Peran)'))
+                    ->badge()
                     ->searchable(),
             ])
             ->filters([

@@ -25,10 +25,12 @@ class UserForm
                     ->label(__('Password'))
                     ->password()
                     ->required(),
-                TextInput::make('role')
-                    ->label(__('Role'))
-                    ->required()
-                    ->default('visitor'),
+                \Filament\Forms\Components\Select::make('roles')
+                    ->label(__('Role (Peran)'))
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->required(),
             ]);
     }
 }

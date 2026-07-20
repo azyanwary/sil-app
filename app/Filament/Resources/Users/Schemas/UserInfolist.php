@@ -27,8 +27,9 @@ class UserInfolist
                     ->label(__('Updated At'))
                     ->dateTime()
                     ->placeholder('-'),
-                TextEntry::make('role')
-                    ->label(__('Role')),
+                TextEntry::make('roles.name')
+                    ->label(__('Role (Peran)'))
+                    ->badge(),
             ]);
     }
 }
