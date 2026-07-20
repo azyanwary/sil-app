@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\Translatable\HasTranslations;
 
 class SitePhoto extends Model
 {
+    use HasTranslations;
+
+    public array $translatable = ['caption'];
     protected $fillable = [
         'heritage_site_id',
         'file_path',
