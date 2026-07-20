@@ -17,7 +17,7 @@ class PermissionsTable
                 TextColumn::make('name')
                     ->label('Nama Permission (Modul)')
                     ->badge()
-                    ->formatStateUsing(fn (string $state): string => \App\Enums\PermissionType::tryFrom($state)?->getLabel() ?? $state)
+                    ->formatStateUsing(fn (string $state): string => \App\Enums\PermissionType::tryFrom($state)?->label() ?? $state)
                     ->searchable(),
                 TextColumn::make('guard_name')
                     ->searchable(),

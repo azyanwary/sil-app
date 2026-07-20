@@ -13,7 +13,7 @@ class PermissionForm
             ->components([
                 \Filament\Forms\Components\Select::make('name')
                     ->label('Nama Permission (Modul)')
-                    ->options(\App\Enums\PermissionType::class)
+                    ->options(collect(\App\Enums\PermissionType::cases())->mapWithKeys(fn ($enum) => [$enum->value => $enum->label()])->toArray())
                     ->required()
                     ->unique(ignoreRecord: true),
                 \Filament\Forms\Components\TextInput::make('guard_name')
