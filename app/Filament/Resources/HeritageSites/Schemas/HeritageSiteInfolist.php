@@ -15,31 +15,31 @@ class HeritageSiteInfolist
                 TextEntry::make('category.name')
                     ->label(__('Category')),
                 TextEntry::make('name')
-                    ->label(__('Name')),
+                    ->translateLabel(),
                 TextEntry::make('slug')
-                    ->label(__('Slug')),
+                    ->translateLabel(),
                 TextEntry::make('description')
-                    ->label(__('Description'))
+                    ->translateLabel()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('address')
-                    ->label(__('Address'))
+                    ->translateLabel()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('latitude')
-                    ->label(__('Latitude'))
+                    ->translateLabel()
                     ->placeholder('-'),
                 TextEntry::make('longitude')
-                    ->label(__('Longitude'))
+                    ->translateLabel()
                     ->placeholder('-'),
                 TextEntry::make('registration_number')
-                    ->label(__('Registration Number'))
+                    ->translateLabel()
                     ->placeholder('-'),
                 TextEntry::make('designation_year')
-                    ->label(__('Designation Year'))
+                    ->translateLabel()
                     ->placeholder('-'),
                 TextEntry::make('status')
-                    ->label(__('Status'))
+                    ->translateLabel()
                     ->badge(),
                 IconEntry::make('is_facility_available')
                     ->label(__('Facility Available'))
@@ -47,11 +47,11 @@ class HeritageSiteInfolist
                 TextEntry::make('creator.name')
                     ->label(__('Created by')),
                 TextEntry::make('created_at')
-                    ->label(__('Created At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
-                    ->label(__('Updated At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->placeholder('-'),
             ]);

@@ -23,10 +23,10 @@ class SiteConditionReportForm
                     ->relationship('surveyor', 'name')
                     ->required(),
                 DatePicker::make('survey_date')
-                    ->label(__('Survey Date'))
+                    ->translateLabel()
                     ->required(),
                 Select::make('condition')
-                    ->label(__('Condition'))
+                    ->translateLabel()
                     ->options([
                         'good' => __('Good'),
                         'minor_damage' => __('Minor Damage'),
@@ -35,10 +35,10 @@ class SiteConditionReportForm
                     ])
                     ->required(),
                 Textarea::make('findings')
-                    ->label(__('Findings'))
+                    ->translateLabel()
                     ->columnSpanFull(),
                 Textarea::make('recommendation')
-                    ->label(__('Recommendation'))
+                    ->translateLabel()
                     ->columnSpanFull(),
                 Toggle::make('is_urgent')
                     ->label(__('Urgent'))
@@ -47,7 +47,7 @@ class SiteConditionReportForm
                     ->label(__('Responded by'))
                     ->relationship('responder', 'name'),
                 Textarea::make('response_notes')
-                    ->label(__('Response Notes'))
+                    ->translateLabel()
                     ->columnSpanFull(),
             ]);
     }

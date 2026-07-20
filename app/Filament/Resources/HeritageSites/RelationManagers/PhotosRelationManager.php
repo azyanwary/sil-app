@@ -33,7 +33,7 @@ class PhotosRelationManager extends RelationManager
                     ->imageEditor()
                     ->required(),
                 TextInput::make('caption')
-                    ->label(__('Caption')),
+                    ->translateLabel(),
             ]);
     }
 
@@ -44,15 +44,15 @@ class PhotosRelationManager extends RelationManager
                 ImageColumn::make('file_path')
                     ->label(__('Photo')),
                 TextColumn::make('caption')
-                    ->label(__('Caption'))
+                    ->translateLabel()
                     ->searchable(),
                 TextColumn::make('created_at')
-                    ->label(__('Created At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->label(__('Updated At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

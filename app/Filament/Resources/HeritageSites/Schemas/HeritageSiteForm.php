@@ -20,33 +20,33 @@ class HeritageSiteForm
                     ->relationship('category', 'name')
                     ->required(),
                 TextInput::make('name')
-                    ->label(__('Name'))
+                    ->translateLabel()
                     ->required(),
                 TextInput::make('slug')
-                    ->label(__('Slug'))
+                    ->translateLabel()
                     ->required(),
                 Textarea::make('description')
-                    ->label(__('Description'))
+                    ->translateLabel()
                     ->columnSpanFull(),
                 Textarea::make('address')
-                    ->label(__('Address'))
+                    ->translateLabel()
                     ->columnSpanFull(),
                 TextInput::make('latitude')
-                    ->label(__('Latitude'))
+                    ->translateLabel()
                     ->required()
                     ->numeric(),
                 TextInput::make('longitude')
-                    ->label(__('Longitude'))
+                    ->translateLabel()
                     ->required()
                     ->numeric(),
                 TextInput::make('registration_number')
-                    ->label(__('Registration Number'))
+                    ->translateLabel()
                     ->required(),
                 TextInput::make('designation_year')
-                    ->label(__('Designation Year'))
+                    ->translateLabel()
                     ->required(),
                 Select::make('status')
-                    ->label(__('Status'))
+                    ->translateLabel()
                     ->options([
                         'active' => __('Active'),
                         'under_renovation' => __('Under Renovation'),

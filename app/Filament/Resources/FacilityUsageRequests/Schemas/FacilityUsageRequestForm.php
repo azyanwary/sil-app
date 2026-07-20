@@ -16,7 +16,7 @@ class FacilityUsageRequestForm
         return $schema
             ->components([
                 TextInput::make('request_number')
-                    ->label(__('Request Number'))
+                    ->translateLabel()
                     ->required(),
                 Select::make('user_id')
                     ->label(__('Applicant'))
@@ -27,36 +27,36 @@ class FacilityUsageRequestForm
                     ->relationship('site', 'name')
                     ->required(),
                 TextInput::make('applicant_name')
-                    ->label(__('Applicant Name'))
+                    ->translateLabel()
                     ->required(),
                 TextInput::make('identity_number')
-                    ->label(__('Identity Number'))
+                    ->translateLabel()
                     ->required(),
                 TextInput::make('institution_name')
-                    ->label(__('Institution Name')),
+                    ->translateLabel(),
                 TextInput::make('activity_type')
-                    ->label(__('Activity Type'))
+                    ->translateLabel()
                     ->required(),
                 Textarea::make('activity_description')
-                    ->label(__('Activity Description'))
+                    ->translateLabel()
                     ->columnSpanFull(),
                 DatePicker::make('start_date')
-                    ->label(__('Start Date'))
+                    ->translateLabel()
                     ->required(),
                 DatePicker::make('end_date')
-                    ->label(__('End Date'))
+                    ->translateLabel()
                     ->required(),
                 TextInput::make('duration_days')
-                    ->label(__('Duration Days'))
+                    ->translateLabel()
                     ->numeric(),
                 TextInput::make('participant_count')
-                    ->label(__('Participant Count'))
+                    ->translateLabel()
                     ->numeric(),
                 FileUpload::make('application_letter_path')
                     ->label(__('Application Letter'))
                     ->directory('application-letters'),
                 Select::make('status')
-                    ->label(__('Status'))
+                    ->translateLabel()
                     ->options([
                         'submitted' => __('Submitted'),
                         'verified' => __('Verified'),
@@ -68,12 +68,12 @@ class FacilityUsageRequestForm
                     ->default('submitted')
                     ->required(),
                 Textarea::make('approval_notes')
-                    ->label(__('Approval Notes'))
+                    ->translateLabel()
                     ->columnSpanFull(),
                 TextInput::make('permit_number')
-                    ->label(__('Permit Number')),
+                    ->translateLabel(),
                 TextInput::make('fee_amount')
-                    ->label(__('Fee Amount'))
+                    ->translateLabel()
                     ->numeric()
                     ->default(0),
                 Select::make('reviewed_by')
@@ -82,3 +82,4 @@ class FacilityUsageRequestForm
             ]);
     }
 }
+

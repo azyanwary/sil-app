@@ -17,7 +17,7 @@ class FacilityUsageRequestsTable
         return $table
             ->columns([
                 TextColumn::make('request_number')
-                    ->label(__('Request Number'))
+                    ->translateLabel()
                     ->searchable(),
                 TextColumn::make('user.name')
                     ->label(__('Applicant'))
@@ -26,31 +26,31 @@ class FacilityUsageRequestsTable
                     ->label(__('Site'))
                     ->searchable(),
                 TextColumn::make('activity_type')
-                    ->label(__('Activity Type'))
+                    ->translateLabel()
                     ->searchable(),
                 TextColumn::make('start_date')
-                    ->label(__('Start Date'))
+                    ->translateLabel()
                     ->date()
                     ->sortable(),
                 TextColumn::make('end_date')
-                    ->label(__('End Date'))
+                    ->translateLabel()
                     ->date()
                     ->sortable(),
                 TextColumn::make('status')
-                    ->label(__('Status'))
+                    ->translateLabel()
                     ->badge()
                     ->searchable(),
                 TextColumn::make('fee_amount')
-                    ->label(__('Fee Amount'))
+                    ->translateLabel()
                     ->money('IDR')
                     ->sortable(),
                 TextColumn::make('created_at')
-                    ->label(__('Created At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->label(__('Updated At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -70,3 +70,4 @@ class FacilityUsageRequestsTable
             ]);
     }
 }
+

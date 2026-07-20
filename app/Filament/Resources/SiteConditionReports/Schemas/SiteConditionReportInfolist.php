@@ -17,17 +17,17 @@ class SiteConditionReportInfolist
                 TextEntry::make('surveyor.name')
                     ->label(__('Surveyor')),
                 TextEntry::make('survey_date')
-                    ->label(__('Survey Date'))
+                    ->translateLabel()
                     ->date(),
                 TextEntry::make('condition')
-                    ->label(__('Condition'))
+                    ->translateLabel()
                     ->badge(),
                 TextEntry::make('findings')
-                    ->label(__('Findings'))
+                    ->translateLabel()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('recommendation')
-                    ->label(__('Recommendation'))
+                    ->translateLabel()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 IconEntry::make('is_urgent')
@@ -37,19 +37,19 @@ class SiteConditionReportInfolist
                     ->label(__('Responded by'))
                     ->placeholder('-'),
                 TextEntry::make('responded_at')
-                    ->label(__('Responded At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('response_notes')
-                    ->label(__('Response Notes'))
+                    ->translateLabel()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('created_at')
-                    ->label(__('Created At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
-                    ->label(__('Updated At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->placeholder('-'),
             ]);

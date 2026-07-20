@@ -12,64 +12,65 @@ class FacilityUsageRequestInfolist
         return $schema
             ->components([
                 TextEntry::make('request_number')
-                    ->label(__('Request Number')),
+                    ->translateLabel(),
                 TextEntry::make('user.name')
                     ->label(__('Applicant')),
                 TextEntry::make('site.name')
                     ->label(__('Site')),
                 TextEntry::make('applicant_name')
-                    ->label(__('Applicant Name')),
+                    ->translateLabel(),
                 TextEntry::make('identity_number')
-                    ->label(__('Identity Number')),
+                    ->translateLabel(),
                 TextEntry::make('institution_name')
-                    ->label(__('Institution Name'))
+                    ->translateLabel()
                     ->placeholder('-'),
                 TextEntry::make('activity_type')
-                    ->label(__('Activity Type')),
+                    ->translateLabel(),
                 TextEntry::make('activity_description')
-                    ->label(__('Activity Description'))
+                    ->translateLabel()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('start_date')
-                    ->label(__('Start Date'))
+                    ->translateLabel()
                     ->date(),
                 TextEntry::make('end_date')
-                    ->label(__('End Date'))
+                    ->translateLabel()
                     ->date(),
                 TextEntry::make('duration_days')
-                    ->label(__('Duration Days'))
+                    ->translateLabel()
                     ->suffix(' ' . __('days')),
                 TextEntry::make('participant_count')
-                    ->label(__('Participant Count'))
+                    ->translateLabel()
                     ->suffix(' ' . __('people')),
                 TextEntry::make('status')
-                    ->label(__('Status'))
+                    ->translateLabel()
                     ->badge(),
                 TextEntry::make('approval_notes')
-                    ->label(__('Approval Notes'))
+                    ->translateLabel()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('permit_number')
-                    ->label(__('Permit Number'))
+                    ->translateLabel()
                     ->placeholder('-'),
                 TextEntry::make('fee_amount')
-                    ->label(__('Fee Amount'))
+                    ->translateLabel()
                     ->money('IDR'),
                 TextEntry::make('reviewer.name')
                     ->label(__('Reviewed by'))
                     ->placeholder('-'),
                 TextEntry::make('reviewed_at')
-                    ->label(__('Reviewed At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('created_at')
-                    ->label(__('Created At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
-                    ->label(__('Updated At'))
+                    ->translateLabel()
                     ->dateTime()
                     ->placeholder('-'),
             ]);
     }
 }
+
