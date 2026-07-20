@@ -12,12 +12,16 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
+use LaraZeus\SpatieTranslatable\Resources\RelationManagers\Concerns\Translatable;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class PhotosRelationManager extends RelationManager
 {
+    use Translatable;
+
     protected static string $relationship = 'photos';
 
     protected static ?string $recordTitleAttribute = 'caption';
@@ -62,6 +66,7 @@ class PhotosRelationManager extends RelationManager
             ])
             ->headerActions([
                 CreateAction::make(),
+                LocaleSwitcher::make(),
             ])
             ->actions([
                 ViewAction::make(),

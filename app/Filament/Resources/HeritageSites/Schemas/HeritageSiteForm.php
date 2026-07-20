@@ -17,7 +17,7 @@ class HeritageSiteForm
             ->components([
                 Select::make('site_category_id')
                     ->label(__('Category'))
-                    ->relationship('category', 'name')
+                    ->relationship('category', 'name', modifyQueryUsing: fn ($query) => $query->orderBy('id'))
                     ->required(),
                 TextInput::make('name')
                     ->translateLabel()

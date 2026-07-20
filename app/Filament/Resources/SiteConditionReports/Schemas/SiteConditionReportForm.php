@@ -16,7 +16,7 @@ class SiteConditionReportForm
             ->components([
                 Select::make('heritage_site_id')
                     ->label(__('Site'))
-                    ->relationship('site', 'name')
+                    ->relationship('site', 'name', modifyQueryUsing: fn ($query) => $query->orderBy('id'))
                     ->required(),
                 Select::make('surveyor_id')
                     ->label(__('Surveyor'))
