@@ -11,7 +11,11 @@
                 @endphp
                 
                 @if($featuredPhoto)
-                    <img src="{{ Storage::url($featuredPhoto->photo_path) }}" alt="{{ $site->name }}" class="w-full h-full object-cover">
+                    @if(str_starts_with($featuredPhoto->file_path, 'http'))
+                        <img src="{{ $featuredPhoto->file_path }}" alt="{{ $site->name }}" class="w-full h-full object-cover">
+                    @else
+                        <img src="{{ Storage::url($featuredPhoto->file_path) }}" alt="{{ $site->name }}" class="w-full h-full object-cover">
+                    @endif
                 @else
                     <div class="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400">
                         <svg class="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -32,7 +36,7 @@
                         @endif
                         @if($site->is_facility_available)
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500 text-white">
-                                {{ __('Fasilitas Tersedia') }}
+                                {{ __('Facility Available') }}
                             </span>
                         @endif
                     </div>
@@ -51,18 +55,21 @@
                 
                 <!-- Main Content (2/3) -->
                 <div class="p-6 sm:p-10 lg:col-span-2">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6 font-outfit">{{ __('Deskripsi') }}</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 font-outfit">{{ __('Description') }}</h2>
                     <div class="prose prose-amber max-w-none text-gray-600">
                         {!! $site->description !!}
                     </div>
                     
                     @if($site->photos->count() > 1)
-                        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6 font-outfit">{{ __('Galeri Foto') }}</h2>
+                        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6 font-outfit">{{ __('Photo Gallery') }}</h2>
                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" x-data="{ openModal: false, selectedImage: '' }">
                             @foreach($site->photos as $photo)
+                                @php
+                                    $photoUrl = str_starts_with($photo->file_path, 'http') ? $photo->file_path : Storage::url($photo->file_path);
+                                @endphp
                                 <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 cursor-pointer hover:opacity-75 transition-opacity" 
-                                     @click="selectedImage = '{{ Storage::url($photo->photo_path) }}'; openModal = true">
-                                    <img src="{{ Storage::url($photo->photo_path) }}" alt="Foto {{ $site->name }}" class="object-cover w-full h-full">
+                                     @click="selectedImage = '{{ $photoUrl }}'; openModal = true">
+                                    <img src="{{ $photoUrl }}" alt="Foto {{ $site->name }}" class="object-cover w-full h-full">
                                 </div>
                             @endforeach
                             
@@ -81,26 +88,26 @@
 
                 <!-- Sidebar (1/3) -->
                 <div class="p-6 sm:p-10 bg-gray-50">
-                    <h3 class="text-lg font-bold text-gray-900 mb-6 font-outfit">{{ __('Informasi Praktis') }}</h3>
+                    <h3 class="text-lg font-bold text-gray-900 mb-6 font-outfit">{{ __('Practical Information') }}</h3>
                     
                     <dl class="space-y-6">
                         @if($site->registration_number)
                         <div>
-                            <dt class="text-sm font-medium text-gray-500">{{ __('Nomor Registrasi') }}</dt>
+                            <dt class="text-sm font-medium text-gray-500">{{ __('Registration Number') }}</dt>
                             <dd class="mt-1 text-sm text-gray-900">{{ $site->registration_number }}</dd>
                         </div>
                         @endif
                         
                         @if($site->designation_year)
                         <div>
-                            <dt class="text-sm font-medium text-gray-500">{{ __('Tahun Penetapan') }}</dt>
+                            <dt class="text-sm font-medium text-gray-500">{{ __('Designation Year') }}</dt>
                             <dd class="mt-1 text-sm text-gray-900">{{ $site->designation_year }}</dd>
                         </div>
                         @endif
 
                         @if($site->operating_hours)
                         <div>
-                            <dt class="text-sm font-medium text-gray-500">{{ __('Jam Operasional') }}</dt>
+                            <dt class="text-sm font-medium text-gray-500">{{ __('Operating Hours') }}</dt>
                             <dd class="mt-1 text-sm text-gray-900">
                                 @if(is_array($site->operating_hours))
                                     <ul class="space-y-1">
@@ -117,7 +124,7 @@
 
                         @if($site->ticket_price)
                         <div>
-                            <dt class="text-sm font-medium text-gray-500">{{ __('Harga Tiket') }}</dt>
+                            <dt class="text-sm font-medium text-gray-500">{{ __('Ticket Price') }}</dt>
                             <dd class="mt-1 text-sm text-gray-900">{{ $site->ticket_price }}</dd>
                         </div>
                         @endif
@@ -135,7 +142,7 @@
                                 Situs ini menyediakan fasilitas yang dapat diajukan untuk digunakan oleh publik.
                             </p>
                             <a href="/applicant/login" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
-                                {{ __('Ajukan Penggunaan Fasilitas') }}
+                                {{ __('Apply for Facility Usage') }}
                             </a>
                         </div>
                     @endif

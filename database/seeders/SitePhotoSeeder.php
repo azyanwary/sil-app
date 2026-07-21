@@ -4,41 +4,40 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\SitePhoto;
+use App\Models\HeritageSite;
 
 class SitePhotoSeeder extends Seeder
 {
     public function run(): void
     {
-        $photos = [
-            [
-                'heritage_site_id' => 1,
-                'file_path' => 'photos/prambanan-1.jpg',
-                'caption' => json_encode(['id' => 'Tampak depan Candi Prambanan', 'en' => 'Front view of Prambanan Temple']),
-                'sort_order' => 1,
-                'is_featured' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'heritage_site_id' => 2,
-                'file_path' => 'photos/keraton-1.jpg',
-                'caption' => json_encode(['id' => 'Pelataran Keraton Yogyakarta', 'en' => 'Courtyard of Yogyakarta Palace']),
-                'sort_order' => 1,
-                'is_featured' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'heritage_site_id' => 3,
-                'file_path' => 'photos/masjid-kauman-1.jpg',
-                'caption' => json_encode(['id' => 'Serambi Masjid Gedhe Kauman', 'en' => 'Porch of Gedhe Kauman Mosque']),
-                'sort_order' => 1,
-                'is_featured' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ];
+        $sites = HeritageSite::all();
 
-        SitePhoto::insert($photos);
+        foreach ($sites as $site) {
+            $numPhotos = rand(1, 6);
+            
+            for ($i = 1; $i <= $numPhotos; $i++) {
+                $seed = 'site_' . $site->id . '_photo_' . $i;
+                $photoData = [
+                    'heritage_site_id' => $site->id,
+                    'file_path' => "https://picsum.photos/seed/{$seed}/800/600",
+                    'caption' => [
+                        'id' => "Foto {$i} untuk " . $site->getTranslation('name', 'id'), 
+                        'en' => "Photo {$i} for " . $site->getTranslation('name', 'en')
+                    ],
+                    'sort_order' => $i,
+                    'is_featured' => $i === 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+
+                SitePhoto::updateOrCreate(
+                    [
+                        'heritage_site_id' => $site->id,
+                        'sort_order' => $i,
+                    ],
+                    $photoData
+                );
+            }
+        }
     }
 }

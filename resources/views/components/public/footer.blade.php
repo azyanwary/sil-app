@@ -34,13 +34,13 @@
                         <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Menu Utama</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href="{{ route('home') }}" class="text-base text-gray-300 hover:text-white"> {{ __('Beranda') }} </a>
+                                <a href="{{ route('home') }}" class="text-base text-gray-300 hover:text-white"> {{ __('Home') }} </a>
                             </li>
                             <li>
-                                <a href="{{ route('map') }}" class="text-base text-gray-300 hover:text-white"> {{ __('Peta Interaktif') }} </a>
+                                <a href="{{ route('map') }}" class="text-base text-gray-300 hover:text-white"> {{ __('Interactive Map') }} </a>
                             </li>
                             <li>
-                                <a href="{{ route('sites.index') }}" class="text-base text-gray-300 hover:text-white"> {{ __('Katalog Situs') }} </a>
+                                <a href="{{ route('sites.index') }}" class="text-base text-gray-300 hover:text-white"> {{ __('Site Catalog') }} </a>
                             </li>
                         </ul>
                     </div>
@@ -48,13 +48,13 @@
                         <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Layanan</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href="/applicant/login" class="text-base text-gray-300 hover:text-white"> {{ __('Permohonan Fasilitas') }} </a>
+                                <a href="/applicant/login" class="text-base text-gray-300 hover:text-white"> {{ __('Facility Request') }} </a>
                             </li>
                             <li>
-                                <a href="/applicant/login" class="text-base text-gray-300 hover:text-white"> {{ __('Masuk Pemohon') }} </a>
+                                <a href="/applicant/login" class="text-base text-gray-300 hover:text-white"> {{ __('Applicant Login') }} </a>
                             </li>
                             <li>
-                                <a href="/admin" class="text-base text-gray-300 hover:text-white"> {{ __('Masuk Pengelola') }} </a>
+                                <a href="/admin" class="text-base text-gray-300 hover:text-white"> {{ __('Admin Login') }} </a>
                             </li>
                         </ul>
                     </div>

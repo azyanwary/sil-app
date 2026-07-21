@@ -2,10 +2,16 @@
 
 <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
     <div class="aspect-w-16 aspect-h-9 bg-gray-200 relative">
-        @if($site->photos()->where('is_featured', true)->first())
-            <img src="{{ Storage::url($site->photos()->where('is_featured', true)->first()->photo_path) }}" alt="{{ $site->name }}" class="object-cover w-full h-48">
-        @elseif($site->photos()->first())
-            <img src="{{ Storage::url($site->photos()->first()->photo_path) }}" alt="{{ $site->name }}" class="object-cover w-full h-48">
+        @php
+            $featuredPhoto = $site->photos()->where('is_featured', true)->first() ?? $site->photos()->first();
+        @endphp
+        
+        @if($featuredPhoto)
+            @if(str_starts_with($featuredPhoto->file_path, 'http'))
+                <img src="{{ $featuredPhoto->file_path }}" alt="{{ $site->name }}" class="object-cover w-full h-48">
+            @else
+                <img src="{{ Storage::url($featuredPhoto->file_path) }}" alt="{{ $site->name }}" class="object-cover w-full h-48">
+            @endif
         @else
             <div class="w-full h-48 flex items-center justify-center bg-gray-100 text-gray-400">
                 <svg class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -18,7 +24,7 @@
             <x-public.status-badge :status="$site->status" />
             @if($site->is_facility_available)
                 <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 shadow-sm">
-                    {{ __('Fasilitas Tersedia') }}
+                    {{ __('Facility Available') }}
                 </span>
             @endif
         </div>

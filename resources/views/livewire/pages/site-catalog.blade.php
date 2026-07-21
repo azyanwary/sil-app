@@ -4,7 +4,7 @@
         <x-public.breadcrumb :links="['Katalog Situs' => null]" />
 
         <div class="mt-8">
-            <h1 class="text-3xl font-extrabold text-gray-900 font-outfit">{{ __('Katalog Situs Cagar Budaya') }}</h1>
+            <h1 class="text-3xl font-extrabold text-gray-900 font-outfit">{{ __('Cultural Heritage Site Catalog') }}</h1>
             <p class="mt-2 text-lg text-gray-500">Jelajahi berbagai peninggalan bersejarah di wilayah kerja kami.</p>
         </div>
 

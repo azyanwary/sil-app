@@ -63,11 +63,14 @@ class SiteCatalog extends Component
 
         if ($this->category) {
             // Find by slug or ID
-            $categoryModel = SiteCategory::where('slug', $this->category)
-                                       ->orWhere('id', $this->category)
-                                       ->first();
+            $categoryModel = SiteCategory::where(function($q) {
+                $q->where('slug', $this->category);
+                if (is_numeric($this->category)) {
+                    $q->orWhere('id', $this->category);
+                }
+            })->first();
             if ($categoryModel) {
-                $query->where('category_id', $categoryModel->id);
+                $query->where('site_category_id', $categoryModel->id);
             }
         }
 

@@ -20,7 +20,7 @@
     <!-- Sidebar Panel -->
     <div class="w-full md:w-80 bg-white shadow-lg z-20 flex flex-col h-auto md:h-[calc(100vh-4rem)] overflow-y-auto">
         <div class="p-6">
-            <h1 class="text-2xl font-extrabold text-gray-900 font-outfit mb-2">{{ __('Peta Interaktif') }}</h1>
+            <h1 class="text-2xl font-extrabold text-gray-900 font-outfit mb-2">{{ __('Interactive Map') }}</h1>
             <p class="text-sm text-gray-500 mb-6">Jelajahi lokasi situs cagar budaya di peta interaktif kami.</p>
             
             <div class="space-y-5">
