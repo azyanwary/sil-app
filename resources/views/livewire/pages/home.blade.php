@@ -1,8 +1,8 @@
 <div>
     <x-public.hero 
         title="Balai Pelestarian Kebudayaan"
-        subtitle="Sistem Informasi Layanan Pelestarian Kebudayaan Wilayah X Daerah Istimewa Yogyakarta dan Jawa Tengah."
-        ctaText="{{ __('Jelajahi Peta') }}"
+        subtitle="{{ __('Sistem Informasi Layanan Pelestarian Kebudayaan Wilayah X Daerah Istimewa Yogyakarta dan Jawa Tengah.') }}"
+        ctaText="{{ __('Explore Map') }}"
         ctaLink="{{ route('map') }}"
     />
 
@@ -10,9 +10,9 @@
     <div class="bg-white py-12 sm:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
-                <x-public.stat-counter count="{{ $totalSites }}" label="{{ __('Total Situs') }}" />
-                <x-public.stat-counter count="{{ $totalCategories }}" label="{{ __('Kategori') }}" />
-                <x-public.stat-counter count="{{ $totalApprovedRequests }}" label="{{ __('Fasilitas Digunakan') }}" />
+                <x-public.stat-counter count="{{ $totalSites }}" label="{{ __('Total Sites') }}" />
+                <x-public.stat-counter count="{{ $totalCategories }}" label="{{ __('Categories') }}" />
+                <x-public.stat-counter count="{{ $totalApprovedRequests }}" label="{{ __('Facilities Used') }}" />
             </div>
         </div>
     </div>
@@ -22,10 +22,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl font-outfit">
-                    {{ __('Kategori Situs') }}
+                    {{ __('Site Categories') }}
                 </h2>
                 <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-                    Jelajahi berbagai peninggalan bersejarah berdasarkan kategorinya.
+                    {{ __('Explore various historical relics based on their categories.') }}
                 </p>
             </div>
             
@@ -42,10 +42,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-12">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl font-outfit">
-                    {{ __('Situs Unggulan') }}
+                    {{ __('Featured Sites') }}
                 </h2>
                 <a href="{{ route('sites.index') }}" class="text-amber-600 hover:text-amber-500 font-medium hidden sm:block">
-                    Lihat Semua &rarr;
+                    {!! __('View All &rarr;') !!}
                 </a>
             </div>
             
@@ -57,7 +57,7 @@
             
             <div class="mt-10 sm:hidden text-center">
                 <a href="{{ route('sites.index') }}" class="text-amber-600 hover:text-amber-500 font-medium">
-                    Lihat Semua &rarr;
+                    {!! __('View All &rarr;') !!}
                 </a>
             </div>
         </div>
@@ -67,13 +67,13 @@
     <div class="bg-amber-700">
         <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-extrabold text-white sm:text-4xl font-outfit">
-                <span class="block">Ingin menggunakan fasilitas situs?</span>
+                <span class="block">{{ __('Want to use site facilities?') }}</span>
             </h2>
             <p class="mt-4 text-lg leading-6 text-amber-100">
-                Kami menyediakan fasilitas di beberapa situs cagar budaya untuk mendukung kegiatan masyarakat dan instansi.
+                {{ __('We provide facilities at several cultural heritage sites to support community and institutional activities.') }}
             </p>
             <a href="/applicant/login" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-amber-800 bg-white hover:bg-amber-50 sm:w-auto">
-                {{ __('Ajukan Penggunaan Fasilitas') }}
+                {{ __('Apply for Facility Usage') }}
             </a>
         </div>
     </div>

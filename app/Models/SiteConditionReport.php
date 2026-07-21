@@ -5,9 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Translatable\HasTranslations;
 
 class SiteConditionReport extends Model
 {
+    use HasTranslations;
+
+    public array $translatable = ['findings', 'recommendation', 'response_notes'];
+
     protected $fillable = [
         'heritage_site_id',
         'surveyor_id',

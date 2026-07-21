@@ -16,7 +16,7 @@
         <p class="text-sm text-gray-500 line-clamp-2 mb-3">{{ $category->description }}</p>
     @endif
     <div class="mt-auto pt-4 flex items-center text-amber-600 text-sm font-medium">
-        <span>{{ $count }} {{ __('Situs') }}</span>
+        <span>{{ $count }} {{ __('Sites') }}</span>
         <svg class="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
