@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use Spatie\Permission\Models\Permission;
+use App\Models\Permission;
 use App\Models\User;
 use App\Enums\PermissionType;
 

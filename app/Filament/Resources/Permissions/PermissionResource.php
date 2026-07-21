@@ -12,7 +12,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use Spatie\Permission\Models\Permission;
+use App\Models\Permission;
 
 class PermissionResource extends Resource
 {

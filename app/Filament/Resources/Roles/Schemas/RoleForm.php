@@ -24,6 +24,12 @@ class RoleForm
                     ->getOptionLabelFromRecordUsing(fn (\Illuminate\Database\Eloquent\Model $record) => \App\Enums\PermissionType::tryFrom($record->name)?->label() ?? $record->name)
                     ->columns(2)
                     ->required(),
+                \Filament\Forms\Components\Select::make('users')
+                    ->label('Pengguna')
+                    ->relationship('users', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable(),
             ]);
     }
 }
