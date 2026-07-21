@@ -10,9 +10,19 @@ class FacilityUsageRequest extends Model
 {
     use SoftDeletes;
 
+    protected static function booted()
+    {
+        static::creating(function ($request) {
+            if (empty($request->request_number)) {
+                $request->request_number = 'REQ-' . date('Ymd') . '-' . str_pad(rand(1, 9999), 4, '0', STR_PAD_LEFT);
+            }
+        });
+    }
+
     protected $fillable = [
         'request_number',
         'user_id',
+        'applicant_id',
         'heritage_site_id',
         'applicant_name',
         'identity_number',
@@ -57,5 +67,10 @@ class FacilityUsageRequest extends Model
     public function reviewer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'reviewed_by');
+    }
+
+    public function applicant(): BelongsTo
+    {
+        return $this->belongsTo(Applicant::class);
     }
 }
